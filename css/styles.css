@@ -2,6 +2,10 @@
   box-model: border-box;
 }
 
+::selection {
+	opacity: 1;
+}
+
 html,
 body {
   margin: 0;
@@ -13,7 +17,6 @@ html {
 }
 
 body {
-	background-color: tomato;
 	font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -83,4 +86,52 @@ blockquote cite {
 	position: fixed;
 	right: 0;
 	bottom: 0;
+}
+
+.bg--tomato {
+	background-color: tomato;
+}
+
+.bg--tomato *::selection {
+	background-color: #d04931;
+}
+
+.bg--coral {
+	background-color: coral;
+}
+
+.bg--coral *::selection {
+	background-color: #e6531d;
+}
+
+.bg--mediumseagreen {
+	background-color: mediumseagreen;
+}
+
+.bg--mediumseagreen *::selection {
+	background-color: #2e9a5e;
+}
+
+.bg--lightseagreen {
+	background-color: lightseagreen;
+}
+
+.bg--lightseagreen *::selection {
+	background-color: #039a92;
+}
+
+.bg--mediumturqoise {
+	background-color: mediumturquoise;
+}
+
+.bg--mediumturquoise *::selection {
+	background-color: #0ebdb7;
+}
+
+.bg--cornflowerblue {
+	background-color: cornflowerblue;
+}
+
+.bg--cornflowerblue *::selection {
+	background-color: #417ae0;
 }

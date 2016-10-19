@@ -17,7 +17,7 @@ require_once './functions.php';
     <!-- PROJECT SCRIPTS -->
     <script type="text/javascript" src="js/main.js"></script>
   </head>
-  <body style="background-color: <?= getBgColor(); ?>;">
+  <body class="<?= getBodyClass(); ?>">
     <header class="header-wrap">
       <nav class="nav-wrap"></nav>
     </header>

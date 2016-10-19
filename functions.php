@@ -1,16 +1,16 @@
 <?php
 
-function getBgColor() {
-	$colors = array(
-		'tomato',
-		'coral',
-		'mediumseagreen',
-		'lightseagreen',
-		'mediumturquoise',
-		'cornflowerblue',
+function getBodyClass() {
+	$classes = array(
+		'bg--tomato',
+		'bg--coral',
+		'bg--mediumseagreen',
+		'bg--lightseagreen',
+		'bg--mediumturquoise',
+		'bg--cornflowerblue',
 	);
-	
-	return $colors[rand(0, ( count( $colors ) - 1 ) )];
+
+	return $classes[rand(0, ( count( $classes ) - 1 ) )];
 }
 
 ?>
