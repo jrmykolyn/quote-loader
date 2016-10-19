@@ -1,6 +1,6 @@
 $( document ).ready( function() {
 	// Define transition-related vars.
-	var min_dur = 800;
+	var min_dur = 900;
 	var multiplier_dur = 100;
 
 
