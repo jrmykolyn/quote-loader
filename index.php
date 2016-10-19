@@ -19,7 +19,9 @@ require_once './functions.php';
   </head>
   <body class="<?= getBodyClass(); ?>">
     <header class="header-wrap">
-      <nav class="nav-wrap"></nav>
+      <nav class="nav-wrap">
+        <div class="nav-wrap__inner"></div>
+      </nav><!-- .nav-wrap -->
     </header>
     <main class="main-content">
       <section class="quote-wrap">

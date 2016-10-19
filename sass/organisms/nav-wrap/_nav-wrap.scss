@@ -1,0 +1,56 @@
+// --------------------------------------------------
+// VARIABLES
+// --------------------------------------------------
+$nav-wrap: '.nav-wrap';
+
+
+// --------------------------------------------------
+// SELECTORS
+// --------------------------------------------------
+/**
+ * 'Root' class for project navigation elem.
+ */
+#{$nav-wrap} {
+	width: 100%;
+	height: 5rem;
+	background-color: #FFF;
+	display: block;
+
+	-webkit-transform: translate(0, -100%);
+	-ms-transform: translate(0, -100%);
+	transform: translate(0, -100%);
+}
+
+
+/**
+ * Project navigation 'inner' element.
+ */
+#{$nav-wrap}__inner {
+	width: 90%;
+	max-width: 120rem;
+	height: 100%;
+	display: block;
+	margin: 0 auto;
+	position: relative;
+}
+
+
+/**
+ * `:before` pseudo-element of 'inner' navigation.
+ *
+ * Rules below allow for the 'tab' that hangs down
+ * below the navigation.
+ */
+#{$nav-wrap}__inner:before,
+#{$nav-wrap}__inner::before {
+	content: '';
+	width: 5rem;
+	height: 3rem;
+	display: block;
+	background-color: #FFF;
+	border-bottom-right-radius: 0.5rem;
+	border-bottom-left-radius: 0.5rem;
+	position: absolute;
+	top: 100%;
+	right: 0;
+}
