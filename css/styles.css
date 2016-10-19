@@ -26,6 +26,10 @@ blockquote {
 	font-size: 4rem;
 }
 
+blockquote span {
+	display: block;
+}
+
 blockquote footer {
 	width: 100%;
 	padding-top: 4rem;
@@ -55,4 +59,18 @@ blockquote cite {
 
 	display: block;
 	margin: 0 auto;
+}
+
+.elem--hide {
+	opacity: 0;
+	margin-top: 2rem;
+
+	-webkit-transition: opacity 0.5s, margin 0.5s;
+	-ms-transition: opacity 0.5s, margin 0.5s;
+	transition: opacity 0.5s, margin 0.5s;
+}
+
+.elem--show {
+	opacity: 1;
+	margin-top: 0;
 }
