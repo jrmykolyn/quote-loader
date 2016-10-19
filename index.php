@@ -13,6 +13,7 @@ require_once './functions.php';
     <link rel="stylesheet" href="css/styles.css">
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/vendor/jquery-ui.min.js"></script>
     <!-- PROJECT SCRIPTS -->
     <script type="text/javascript" src="js/main.js"></script>
   </head>
@@ -35,5 +36,6 @@ require_once './functions.php';
       </section><!-- .quote-wrap -->
     </main><!-- .main-content-->
     <footer class="footer-wrap"></footer>
+    <div class="obstruct"></div>
   </body>
 </html>

@@ -8,6 +8,11 @@ $( document ).ready( function() {
 	var elems = $( '.js--trans-in' );
 
 
+	// Remove 'obstruct' elem.
+	var obstruct = $( '.obstruct' );
+	obstruct.animate( { 'width': '0px' }, 800, 'easeInExpo' );
+
+
 	// Loop over mateched elements.
 	// Apply 'show' class after element-specific duration has elapsed.
 	for ( var i = 0, x = elems.length; i < x; i++ ) {
