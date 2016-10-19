@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/jrmykolyn/quote-loader/issues"
   },
-  "homepage": "https://github.com/jrmykolyn/quote-loader#readme"
+  "homepage": "https://github.com/jrmykolyn/quote-loader#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  }
 }
