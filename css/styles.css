@@ -1,0 +1,58 @@
+* {
+  box-model: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	background-color: tomato;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+blockquote {
+	color: #FFF;
+	margin: 0;
+	padding: 2rem 3rem;
+
+	font-family: 'Abhaya Libre', Times, serif;
+	font-size: 4rem;
+}
+
+blockquote footer {
+	width: 100%;
+	padding-top: 4rem;
+
+	text-align: center;
+}
+
+blockquote cite {
+	display: inline-block;
+	color: rgba(0,0,0,0.5);
+	border-top: solid 2px rgba(0,0,0,0.4);
+	padding-top: 1rem;
+
+	font-family: 'Raleway', Helvetica, Arial, sans-serif;
+	font-size: 2rem;
+	font-style: normal;
+	letter-spacing: 0.5px;
+}
+
+.main-content {
+	padding-top: 8rem;
+}
+
+.quote-wrap {
+	width: 100%;
+	max-width: 80rem;
+
+	display: block;
+	margin: 0 auto;
+}
