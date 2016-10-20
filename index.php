@@ -19,8 +19,10 @@ require_once './functions.php';
   </head>
   <body class="<?= getBodyClass(); ?>">
     <header class="header-wrap">
-      <nav class="nav-wrap">
-        <div class="nav-wrap__inner"></div>
+      <nav class="nav-wrap js--nav">
+        <div class="nav-wrap__inner">
+          <span class="nav-toggle js--nav-toggle"></span>
+        </div>
       </nav><!-- .nav-wrap -->
     </header>
     <main class="main-content">

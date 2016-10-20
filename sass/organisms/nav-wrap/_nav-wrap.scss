@@ -2,6 +2,7 @@
 // VARIABLES
 // --------------------------------------------------
 $nav-wrap: '.nav-wrap';
+$nav-toggle: '.nav-toggle';
 
 
 // --------------------------------------------------
@@ -14,11 +15,20 @@ $nav-wrap: '.nav-wrap';
 	width: 100%;
 	height: 5rem;
 	background-color: #FFF;
+	box-shadow: 0 0.1rem 0.1rem rgba(0,0,0,0.2);
 	display: block;
 
 	-webkit-transform: translate(0, -100%);
 	-ms-transform: translate(0, -100%);
 	transform: translate(0, -100%);
+
+	transition: transform 0.35s;
+
+	&.is-active {
+		-webkit-transform: translateY(0);
+		-ms-transform: translateY(0);
+		transform: translateY(0);
+	}
 }
 
 
@@ -41,13 +51,12 @@ $nav-wrap: '.nav-wrap';
  * Rules below allow for the 'tab' that hangs down
  * below the navigation.
  */
-#{$nav-wrap}__inner:before,
-#{$nav-wrap}__inner::before {
-	content: '';
+#{$nav-toggle}  {
 	width: 5rem;
 	height: 3rem;
 	display: block;
 	background-color: #FFF;
+	box-shadow: 0 0.1rem 0.1rem rgba(0,0,0,0.2);
 	border-bottom-right-radius: 0.5rem;
 	border-bottom-left-radius: 0.5rem;
 	position: absolute;

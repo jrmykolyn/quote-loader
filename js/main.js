@@ -1,7 +1,14 @@
 $( document ).ready( function() {
+	/* -------------------------------------------------- */
+	/* DECLARE VARS */
+	/* -------------------------------------------------- */
 	// Define transition-related vars.
 	var min_dur = 900;
 	var multiplier_dur = 100;
+
+	// Nav
+	var nav = $( '.nav-wrap' );
+	var nav_toggle = $( '.js--nav-toggle' );
 
 
 	// Get DOM elements to transition.
@@ -24,4 +31,13 @@ $( document ).ready( function() {
 			}, min_dur + ( multiplier_dur * i ) );
 		} )( elem, i );
 	}
+
+
+	/* -------------------------------------------------- */
+	/* EVENTS */
+	/* -------------------------------------------------- */
+	nav_toggle.on( 'click', function( e ) {
+		nav.toggleClass( 'is-active' );
+	} );
+
 } );
