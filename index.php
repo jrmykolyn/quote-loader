@@ -1,5 +1,7 @@
 <?php
 require_once './functions.php';
+
+$accent = getAccentColor();
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,10 +19,9 @@ require_once './functions.php';
     <!-- PROJECT SCRIPTS -->
     <script type="text/javascript" src="js/main.js"></script>
   </head>
-  <body class="<?= getBodyClass(); ?>">
+  <body class="<?= getBgClass( $accent ); ?>">
     <header class="header-wrap">
-      <nav class="nav-wrap--left js--nav">
-        <!-- <div class="nav-overlay"></div> -->
+      <nav class="nav-wrap--left js--nav <?= getBgClass( $accent ); ?>">
         <div class="nav-wrap--left__inner">
           <span class="nav-toggle--left js--nav-toggle"></span>
         </div>

@@ -1,0 +1,11 @@
+@each $key, $value in $colors {
+	$color: map-get($colors, $key);
+
+	.bg--#{$key} {
+		background-color: $color;
+
+		*::selection {
+			background-color: darken($color, 5%);
+		}
+	}
+}

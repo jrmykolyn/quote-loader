@@ -1,16 +1,22 @@
 <?php
 
-function getBodyClass() {
-	$classes = array(
-		'bg--tomato',
-		'bg--coral',
-		'bg--mediumseagreen',
-		'bg--lightseagreen',
-		'bg--mediumturquoise',
-		'bg--cornflowerblue',
+function getBgClass( $color ) {
+	$prefix = "bg--";
+
+	return $prefix . $color;
+}
+
+function getAccentColor() {
+	$colors = array(
+		'tomato',
+		'coral',
+		'mediumseagreen',
+		'lightseagreen',
+		'mediumturquoise',
+		'cornflowerblue',
 	);
 
-	return $classes[rand(0, ( count( $classes ) - 1 ) )];
+	return $colors[rand(0, ( count( $colors ) - 1 ) )];
 }
 
 ?>
