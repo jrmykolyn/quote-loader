@@ -6,6 +6,12 @@ function getBgClass( $color ) {
 	return $prefix . $color;
 }
 
+function getOverlayClass( $color, $before = true ) {
+	$prefix = ( $before === true ) ? 'before-overlay--' : 'after-overlay--';
+
+	return $prefix . $color;
+}
+
 function getAccentColor() {
 	$colors = array(
 		'tomato',

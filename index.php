@@ -21,7 +21,7 @@ $accent = getAccentColor();
   </head>
   <body class="<?= getBgClass( $accent ); ?>">
     <header class="header-wrap">
-      <nav class="nav-wrap--left js--nav <?= getBgClass( $accent ); ?>">
+      <nav class="nav-wrap--left js--nav <?= getOverlayClass( $accent ); ?>">
         <div class="nav-wrap--left__inner">
           <span class="nav-toggle--left js--nav-toggle"></span>
         </div>

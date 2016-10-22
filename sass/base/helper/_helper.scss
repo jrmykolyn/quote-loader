@@ -1,3 +1,6 @@
+/**
+ * Build background helper classes from `$colors` SASS map.
+ */
 @each $key, $value in $colors {
 	$color: map-get($colors, $key);
 
@@ -6,6 +9,21 @@
 
 		*::selection {
 			background-color: darken($color, 5%);
+		}
+	}
+}
+
+
+/**
+ * Build overlay helper classes from `$colors` SASS map.
+ */
+@each $key, $value in $colors {
+	$color: map-get($colors, $key);
+
+	.before-overlay--#{$key} {
+		&:before,
+		&::before {
+			background-color: rgba( darken($color, 20%), 0.75 );
 		}
 	}
 }
