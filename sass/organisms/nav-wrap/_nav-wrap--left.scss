@@ -1,0 +1,87 @@
+// --------------------------------------------------
+// VARIABLES
+// --------------------------------------------------
+
+
+// --------------------------------------------------
+// SELECTORS
+// --------------------------------------------------
+/**
+ * 'Left' variant of project nav. elem.
+ */
+#{$nav-wrap}--left {
+	width: 90%;
+	max-width: 30rem;
+	height: 100%;
+	box-shadow: 0.1rem 0 0.1rem rgba(0,0,0,0.2);
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	-webkit-transform: translate(-100%, 0);
+	-ms-transform: translate(-100%, 0);
+	transform: translate(-100%, 0);
+
+	transition: transform 0.35s;
+
+	&:before,
+	&::before {
+		content: '';
+		width: 0;
+
+		height: 100%;
+		display: block;
+		background-color: rgba(0,0,0,0.5);
+		opacity: 0;
+		position: fixed;
+		top: 0;
+		left: 0;
+
+		transition: width 0.01s 0.2s, opacity 0.2s;
+	}
+
+	&.is-active {
+		-webkit-transform: translateX(0);
+		-ms-transform: translateX(0);
+		transform: translateX(0);
+
+		&:before,
+		&::before {
+			width: 200vw;
+			opacity: 1;
+
+			transition: width 0.01s, opacity 0.3s 0.1s;
+		}
+	}
+}
+
+
+/**
+ * 'Inner' elem. of 'left' variant.
+ */
+#{$nav-wrap}--left__inner {
+	width: 100%;
+	height: 100%;
+	display: block;
+	background-color: #FFF;
+	position: relative;
+}
+
+
+/**
+ * 'Left' variant of navigation 'toggle'/tab elem.
+ */
+#{$nav-toggle}--left {
+	width: 3rem;
+	height: 5rem;
+	display: block;
+	display: block;
+	background-color: #FFF;
+	box-shadow: 0.1rem 0 0.1rem rgba(0,0,0,0.2);
+	border-top-right-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+	position: absolute;
+	top: 2rem;
+	left: 100%;
+}

@@ -7,7 +7,7 @@ $( document ).ready( function() {
 	var multiplier_dur = 100;
 
 	// Nav
-	var nav = $( '.nav-wrap' );
+	var nav = $( '.js--nav' );
 	var nav_toggle = $( '.js--nav-toggle' );
 
 
@@ -38,6 +38,12 @@ $( document ).ready( function() {
 	/* -------------------------------------------------- */
 	nav_toggle.on( 'click', function( e ) {
 		nav.toggleClass( 'is-active' );
+	} );
+
+	nav.on( 'click', function( e ) {
+		if ( $( e.target ).hasClass( 'js--nav' ) ) {
+			nav.toggleClass( 'is-active' );
+		}
 	} );
 
 } );
