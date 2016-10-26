@@ -26,14 +26,8 @@ $accent = getAccentColor();
     <main class="main-content">
       <section class="quote-wrap">
       <?php
-        $data = file_get_contents( './data/quotes.csv' );
-        $data_arr = array_filter( explode( "\n", $data ), strlen );
-
-        $quote_index = rand( 0, ( count($data_arr) - 1 ) );
-        $quote = $data_arr[$quote_index];
-        $quote_arr = explode( '|||' , $quote );
-
-        include_once( './includes/quote/_quote.php' );
+        getRandomQuoteElem();
+        getRandomQuoteElem( array( 'hide' => true ) );
       ?>
       </section><!-- .quote-wrap -->
     </main><!-- .main-content-->

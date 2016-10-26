@@ -1,0 +1,8 @@
+Options -Indexes
+Options +FollowSymLinks
+Options +MultiViews
+
+RewriteEngine On
+
+RewriteRule ^api/?$  _controller.php [L]
+

@@ -2,6 +2,10 @@ $( document ).ready( function() {
 	/* -------------------------------------------------- */
 	/* DECLARE VARS */
 	/* -------------------------------------------------- */
+	var app = {
+		state: 'resting'
+	};
+
 	// Define transition-related vars.
 	var min_dur = 900;
 	var multiplier_dur = 100;
@@ -12,7 +16,7 @@ $( document ).ready( function() {
 
 
 	// Get DOM elements to transition.
-	var elems = $( '.js--trans-in' );
+	var elems = $( '.js--trans-ready' );
 
 
 	// Remove 'obstruct' elem.
@@ -27,18 +31,104 @@ $( document ).ready( function() {
 
 		( function( elem, index ) {
 			setTimeout( function() {
-				$( elem ).addClass( 'elem--show' );
-			}, min_dur + ( multiplier_dur * i ) );
+				$( elem )
+					.addClass( 'elem--show' )
+					.removeClass( 'js--trans-ready' );
+			}, min_dur + ( multiplier_dur * index ) );
 		} )( elem, i );
+	}
+
+
+	/* -------------------------------------------------- */
+	/* DECLARE FUNCTIONS */
+	/* -------------------------------------------------- */
+	function fetchQuote( callback ) {
+		console.log( window.location ); /// TEMP
+
+		$.ajax( {
+			method: 'GET',
+			url: window.location.href + '/api',
+			data: {
+				type: 'quote',
+				hidden: true
+			}
+		} ).then( function( response ) {
+			callback( JSON.parse( response ) );
+		} );
+	}
+
+
+	function buildAndInsertQuote( quoteArr ) {
+		// Build quote.
+		var output = buildQuoteElem( quoteArr );
+
+		// Add quote to document.
+		$( '.quote-wrap' ).append( output );
+
+		// Reset 'state'.
+		if ( app.state === 'active' ) { app.state = 'inactive'; }
+	}
+
+
+	function buildQuoteElem( quoteArr ) {
+		var quote_elem = $( '<blockquote>' );
+
+		var quote_text = $( '<span>' )
+			.append( quoteArr[1] )
+			.addClass( 'elem--hide js--trans-in' );
+
+		var quote_footer = $( '<footer>' )
+			.addClass( 'elem--hide js--trans-in' );
+
+		var quote_citation = $( '<cite>' ).append( quoteArr[0] );
+
+		// Assemble 'quote parts'
+		quote_footer.append( quote_citation );
+		quote_elem.append( quote_footer );
+		quote_elem.prepend( quote_text );
+
+		return quote_elem ;
 	}
 
 
 	/* -------------------------------------------------- */
 	/* EVENTS */
 	/* -------------------------------------------------- */
+	$( window ).on( 'keydown', function( e ) {
+		if ( e.keyCode === 39 && app.state !== 'active' ) {
+			app.state = 'active';
+
+			$( '.js--trans-in.elem--show' ).each( function( i, elem ) {
+				$( elem )
+					.removeClass( 'elem--show' )
+					.removeClass( 'js--trans-in' );
+			} );
+
+			setTimeout( function() {
+				$( 'blockquote' ).eq( 0 ).remove();
+			}, 500 );
+
+			setTimeout( function() {
+				$( '.js--trans-in' ).each( function( i, elem ) {
+					( function( elem, index ) {
+						setTimeout( function() {
+							$( elem ).addClass( 'elem--show');
+						}, ( multiplier_dur * index) )
+					} )( elem, i )
+				} );
+			}, 500 );
+
+			setTimeout( function() {
+				fetchQuote( buildAndInsertQuote );
+			}, 1500 );
+		}
+	} );
+
+
 	nav_toggle.on( 'click', function( e ) {
 		nav.toggleClass( 'is-active' );
 	} );
+
 
 	nav.on( 'click', function( e ) {
 		if ( $( e.target ).hasClass( 'js--nav' ) ) {
