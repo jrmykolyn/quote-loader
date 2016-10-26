@@ -1,8 +1,10 @@
-<blockquote>
-	<span class="elem--hide js--trans-in <?= ( $options['hide'] !== true ) ? 'js--trans-ready' : '' ?>">
-		<?= $quote_arr[1]; ?>
-	</span>
-	<footer class="elem--hide js--trans-in <?= ( $options['hide'] !== true ) ? 'js--trans-ready' : '' ?>">
+<blockquote class="quote-elem <?= ( $options['hide'] !== true ) ? 'js--trans-ready' : '' ?>">
+	<div class="quote-elem__body">
+		<span>
+			<?= $quote_arr[1]; ?>
+		</span>
+	</div>
+	<footer class="quote-elem__footer">
 		<cite>
 			<?php
 				// Print out quote author.

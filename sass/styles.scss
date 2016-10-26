@@ -1,5 +1,5 @@
 * {
-  box-model: border-box;
+  box-sizing: border-box;
 }
 
 ::selection {
@@ -10,6 +10,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  color: #222;
 }
 
 html {
@@ -64,18 +65,51 @@ blockquote cite {
 	margin: 0 auto;
 }
 
-.elem--hide {
-	opacity: 0;
-	margin-top: 2rem;
+.quote-elem {
+	max-height: 0;
+	-webkit-transition: max-height 0s 0.5s;
+	-ms-transition: max-height 0s 0.5s;
+	transition: max-height 0s 0.5s;
 
-	-webkit-transition: opacity 0.5s, margin 0.5s;
-	-ms-transition: opacity 0.5s, margin 0.5s;
-	transition: opacity 0.5s, margin 0.5s;
+	&.active {
+		max-height: 999999px;
+	}
 }
 
-.elem--show {
+.quote-elem__body,
+.quote-elem__footer {
+	opacity: 0;
+	margin-top: 2rem;
+}
+
+.quote-elem__body {
+	-webkit-transition: opacity 0.25s 0.1s, margin 0.25s 0.1s;
+	-ms-transition: opacity 0.25s 0.1s, margin 0.25s 0.1s;
+	transition: opacity 0.25s 0.1s, margin 0.25s 0.1s;
+}
+
+.quote-elem__footer {
+	-webkit-transition: opacity 0.25s, margin 0.25s;
+	-ms-transition: opacity 0.25s, margin 0.25s;
+	transition: opacity 0.25s, margin 0.25s;
+}
+
+.active > .quote-elem__body,
+.active > .quote-elem__footer {
 	opacity: 1;
 	margin-top: 0;
+}
+
+.active > .quote-elem__body {
+	-webkit-transition: opacity 0.25s, margin 0.25s;
+	-ms-transition: opacity 0.25s, margin 0.25s;
+	transition: opacity 0.25s, margin 0.25s;
+}
+
+.active > .quote-elem__footer {
+	-webkit-transition: opacity 0.25s 0.1s, margin 0.25s 0.1s;
+	-ms-transition: opacity 0.25s 0.1s, margin 0.25s 0.1s;
+	transition: opacity 0.25s 0.1s, margin 0.25s 0.1s;
 }
 
 .obstruct {

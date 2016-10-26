@@ -16,7 +16,7 @@ $( document ).ready( function() {
 
 
 	// Get DOM elements to transition.
-	var elems = $( '.js--trans-ready' );
+	var elems = $( '.quote-elem.js--trans-ready' );
 
 
 	// Remove 'obstruct' elem.
@@ -32,7 +32,7 @@ $( document ).ready( function() {
 		( function( elem, index ) {
 			setTimeout( function() {
 				$( elem )
-					.addClass( 'elem--show' )
+					.addClass( 'active' )
 					.removeClass( 'js--trans-ready' );
 			}, min_dur + ( multiplier_dur * index ) );
 		} )( elem, i );
@@ -71,21 +71,26 @@ $( document ).ready( function() {
 
 
 	function buildQuoteElem( quoteArr ) {
-		var quote_elem = $( '<blockquote>' );
+		var quote_elem = $( '<blockquote>' )
+			.addClass( 'quote-elem' );
 
-		var quote_text = $( '<span>' )
-			.append( quoteArr[1] )
-			.addClass( 'elem--hide js--trans-in' );
+		var quote_body = $( '<div>' )
+			.addClass( 'quote-elem__body' );
 
 		var quote_footer = $( '<footer>' )
-			.addClass( 'elem--hide js--trans-in' );
+			.addClass( 'quote-elem__footer' );
 
-		var quote_citation = $( '<cite>' ).append( quoteArr[0] );
+		var quote_text = $( '<span>' )
+			.append( quoteArr[1] );
+
+		var quote_citation = $( '<cite>' )
+			.append( quoteArr[0] );
 
 		// Assemble 'quote parts'
+		quote_body.append( quote_text )
 		quote_footer.append( quote_citation );
+		quote_elem.append( quote_body );
 		quote_elem.append( quote_footer );
-		quote_elem.prepend( quote_text );
 
 		return quote_elem ;
 	}
@@ -98,29 +103,19 @@ $( document ).ready( function() {
 		if ( e.keyCode === 39 && app.state !== 'active' ) {
 			app.state = 'active';
 
-			$( '.js--trans-in.elem--show' ).each( function( i, elem ) {
-				$( elem )
-					.removeClass( 'elem--show' )
-					.removeClass( 'js--trans-in' );
-			} );
+			$( '.quote-elem.active' ).removeClass( 'active' );
 
 			setTimeout( function() {
-				$( 'blockquote' ).eq( 0 ).remove();
+				$( '.quote-elem' ).eq( 0 ).remove();
 			}, 500 );
 
 			setTimeout( function() {
-				$( '.js--trans-in' ).each( function( i, elem ) {
-					( function( elem, index ) {
-						setTimeout( function() {
-							$( elem ).addClass( 'elem--show');
-						}, ( multiplier_dur * index) )
-					} )( elem, i )
-				} );
+				$( '.quote-elem' ).addClass( 'active' )
 			}, 500 );
 
 			setTimeout( function() {
 				fetchQuote( buildAndInsertQuote );
-			}, 1500 );
+			}, 500 );
 		}
 	} );
 
