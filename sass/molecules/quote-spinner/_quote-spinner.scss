@@ -1,0 +1,64 @@
+// --------------------------------------------------
+// VARIABLES
+// --------------------------------------------------
+$quote-spinner: '.quote-spinner';
+
+
+// --------------------------------------------------
+// SELECTORS
+// --------------------------------------------------
+#{$quote-spinner} {
+	width: 6rem;
+	height: 6rem;
+	background-color: #FFF;
+	box-shadow: -0.1rem 0.1rem 0.1rem rgba(0,0,0,0.2);
+	border-top-left-radius: 0.5rem;
+	border-bottom-left-radius: 0.5rem;
+	display: block;
+	position: fixed;
+	top: 2rem;
+	right: 0;
+
+	-webkit-transition: transform 0.125s;
+	-ms-transition: transform 0.125s;
+	transition: transform 0.125s;
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+
+	.fetching-data & {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+}
+
+#{$quote-spinner}__elem {
+	width: 60%;
+	height: 60%;
+	display: block;
+	border-radius: 50%;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+
+	.fetching-data & {
+		-webkit-animation: pulse 0.5s infinite alternate;
+		animation: pulse 0.5s infinite alternate;
+	}
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 0.5;
+		-wekbkit-transform: translate(-50%, -50%) scale(0.5);
+		transform: translate(-50%, -50%) scale(0.5);
+	}
+	100% {
+		opacity: 1;
+		-wekbkit-transform: translate(-50%, -50%) scale(1);
+		transform: translate(-50%, -50%) scale(01);
+	}
+}

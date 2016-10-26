@@ -32,6 +32,9 @@ $accent = getAccentColor();
       </section><!-- .quote-wrap -->
     </main><!-- .main-content-->
     <footer class="footer-wrap"></footer>
+    <div class="quote-spinner">
+      <div class="quote-spinner__elem <?= getBgClass( getAccentColor() ); ?>"></div>
+    </div>
     <div class="obstruct"></div>
   </body>
 </html>

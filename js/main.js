@@ -65,8 +65,11 @@ $( document ).ready( function() {
 		// Add quote to document.
 		$( '.quote-wrap' ).append( output );
 
-		// Reset 'state'.
-		if ( app.state === 'active' ) { app.state = 'inactive'; }
+		// Reset 'state', remove supplementary class(es) from <body>.
+		if ( app.state === 'active' ) {
+			app.state = 'inactive';
+			$( 'body' ).removeClass( 'fetching-data' );
+		}
 	}
 
 
@@ -101,7 +104,11 @@ $( document ).ready( function() {
 	/* -------------------------------------------------- */
 	$( window ).on( 'keydown', function( e ) {
 		if ( e.keyCode === 39 && app.state !== 'active' ) {
+			// Update 'state'.
 			app.state = 'active';
+
+			// Add supplementary class to <body> elem.
+			$( 'body' ).addClass( 'fetching-data' );
 
 			$( '.quote-elem.active' ).removeClass( 'active' );
 
