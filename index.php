@@ -21,7 +21,7 @@ $accent = getAccentColor();
   </head>
   <body class="<?= getBgClass( $accent ); ?>">
     <header class="header-wrap">
-      <? include_once './includes/nav/_nav.php'; ?>
+      <? /* include_once './includes/nav/_nav.php'; */ ?>
     </header>
     <main class="main-content">
       <section class="quote-wrap">
