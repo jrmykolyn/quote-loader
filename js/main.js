@@ -80,19 +80,29 @@ $( document ).ready( function() {
 		var quote_body = $( '<div>' )
 			.addClass( 'quote-elem__body' );
 
+		var quote_text = $( '<span>' )
+			.append( quoteArr[1] )
+
+		quote_body.append( quote_text )
+
 		var quote_footer = $( '<footer>' )
 			.addClass( 'quote-elem__footer' );
-
-		var quote_text = $( '<span>' )
-			.append( quoteArr[1] );
 
 		var quote_citation = $( '<cite>' )
 			.addClass( 'text--attribution' )
 			.append( quoteArr[0] );
 
-		// Assemble 'quote parts'
-		quote_body.append( quote_text )
 		quote_footer.append( quote_citation );
+
+		if ( quoteArr[3] ) {
+			var quote_context = $( '<span>' )
+				.addClass( 'text--context-alt' )
+				.append( quoteArr[3] );
+
+			quote_footer.append( quote_context );
+		}
+
+		// Assemble 'quote parts'
 		quote_elem.append( quote_body );
 		quote_elem.append( quote_footer );
 

@@ -177,7 +177,15 @@ blockquote cite {
 			left: 50%;
 			transform: translateX(-50%);
 		}
+	}
 
+	&--context-alt {
+		@extend .text;
+
+		padding-top: 1rem;
+
+		font-size: 1.6rem;
+		font-style: italic;
 	}
 }
 

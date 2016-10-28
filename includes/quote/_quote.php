@@ -29,5 +29,13 @@
 				}
 			?>
 		</cite>
+		<?php
+		// Print out qupte context if avail.
+		if ( isset( $quote_arr[3]) && !empty($quote_arr[3]) ):
+		?>
+		<span class="text--context-alt"><?= $quote_arr[3]; ?></span>
+		<?php
+		endif;
+		?>
 	</footer>
 </blockquote>
