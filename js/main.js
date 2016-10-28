@@ -77,36 +77,53 @@ $( document ).ready( function() {
 		var quote_elem = $( '<blockquote>' )
 			.addClass( 'quote-elem' );
 
-		var quote_body = $( '<div>' )
-			.addClass( 'quote-elem__body' );
-
-		var quote_text = $( '<span>' )
-			.append( quoteArr[1] )
-
-		quote_body.append( quote_text )
-
-		var quote_footer = $( '<footer>' )
-			.addClass( 'quote-elem__footer' );
-
-		var quote_citation = $( '<cite>' )
-			.addClass( 'text--attribution' )
-			.append( quoteArr[0] );
-
-		quote_footer.append( quote_citation );
-
-		if ( quoteArr[3] ) {
-			var quote_context = $( '<span>' )
-				.addClass( 'text--context-alt' )
-				.append( quoteArr[3] );
-
-			quote_footer.append( quote_context );
-		}
+		var quote_body = buildQuoteBody( { quoteText: quoteArr[1] } );
+		var quote_footer = buildQuoteFooter( { quoteAuthor: quoteArr[0], quoteContext: quoteArr[3] } );
 
 		// Assemble 'quote parts'
 		quote_elem.append( quote_body );
 		quote_elem.append( quote_footer );
 
 		return quote_elem ;
+	}
+
+
+	function buildQuoteBody( data ) {
+		var quote_body = $( '<div>' );
+		var quote_text = $( '<span>' );
+
+		quote_body.addClass( 'quote-elem__body' );
+		quote_text.append( data.quoteText );
+
+		quote_body.append( quote_text )
+
+		return quote_body;
+	}
+
+
+	function buildQuoteFooter( data ) {
+		var quote_footer = $( '<footer>' )
+			.addClass( 'quote-elem__footer' );
+
+		// Build 'author' elem. if data is available.
+		if ( data.quoteAuthor ) {
+			var quote_citation = $( '<cite>' )
+				.addClass( 'text--attribution' )
+				.append( data.quoteAuthor );
+
+			quote_footer.append( quote_citation );
+		}
+
+		// Build 'context' elem. if data is available.
+		if ( data.quoteContext ) {
+			var quote_context = $( '<span>' )
+				.addClass( 'text--context-alt' )
+				.append( data.quoteContext );
+
+			quote_footer.append( quote_context );
+		}
+
+		return quote_footer;
 	}
 
 
