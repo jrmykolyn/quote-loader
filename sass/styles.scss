@@ -44,7 +44,6 @@ blockquote footer {
 blockquote cite {
 	display: inline-block;
 	color: rgba(0,0,0,0.5);
-	border-top: solid 2px rgba(0,0,0,0.4);
 	padding-top: 1rem;
 
 	font-family: 'Raleway', Helvetica, Arial, sans-serif;
@@ -76,10 +75,18 @@ blockquote cite {
 	}
 }
 
+.quote-elem__header,
 .quote-elem__body,
 .quote-elem__footer {
 	opacity: 0;
 	margin-top: 2rem;
+}
+
+.quote-elem__header {
+	padding-bottom: 3.5rem;
+	-webkit-transition: opacity 0.25s 0.2s, margin 0.25s 0.2s;
+	-ms-transition: opacity 0.25s 0.2s, margin 0.25s 0.2s;
+	transition: opacity 0.25s 0.2s, margin 0.25s 0.2s;
 }
 
 .quote-elem__body {
@@ -94,22 +101,84 @@ blockquote cite {
 	transition: opacity 0.25s, margin 0.25s;
 }
 
+.active > .quote-elem__header,
 .active > .quote-elem__body,
 .active > .quote-elem__footer {
 	opacity: 1;
 	margin-top: 0;
 }
 
-.active > .quote-elem__body {
+.active > .quote-elem__header {
 	-webkit-transition: opacity 0.25s, margin 0.25s;
 	-ms-transition: opacity 0.25s, margin 0.25s;
 	transition: opacity 0.25s, margin 0.25s;
 }
 
-.active > .quote-elem__footer {
+.active > .quote-elem__body {
 	-webkit-transition: opacity 0.25s 0.1s, margin 0.25s 0.1s;
 	-ms-transition: opacity 0.25s 0.1s, margin 0.25s 0.1s;
 	transition: opacity 0.25s 0.1s, margin 0.25s 0.1s;
+}
+
+.active > .quote-elem__footer {
+	-webkit-transition: opacity 0.25s 0.2s, margin 0.25s 0.2s;
+	-ms-transition: opacity 0.25s 0.2s, margin 0.25s 0.2s;
+	transition: opacity 0.25s 0.2s, margin 0.25s 0.2s;
+}
+
+.text {
+	display: block;
+	color: rgba(0,0,0,0.5);
+	position: relative;
+
+	font-family: 'Raleway', Helvetica, Arial, sans-serif;
+	font-size: 2rem;
+	font-style: normal;
+	text-align: center;
+	letter-spacing: 0.5px;
+
+	&--context {
+		@extend .text;
+
+		padding-bottom: 2rem;
+
+		&:after,
+		&::after {
+			content: '';
+			width: 50%;
+			max-width: 100px;
+			height: 2px;
+			display: block;
+			background-color: rgba(0,0,0,0.4);
+
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+
+	&--attribution {
+		@extend .text;
+
+		padding-top: 1.5rem;
+
+		&:before,
+		&::before {
+			content: '';
+			width: 50%;
+			max-width: 100px;
+			height: 2px;
+			display: block;
+			background-color: rgba(0,0,0,0.4);
+
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+	}
 }
 
 .obstruct {

@@ -87,6 +87,7 @@ $( document ).ready( function() {
 			.append( quoteArr[1] );
 
 		var quote_citation = $( '<cite>' )
+			.addClass( 'text--attribution' )
 			.append( quoteArr[0] );
 
 		// Assemble 'quote parts'
