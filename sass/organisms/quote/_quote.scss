@@ -1,0 +1,105 @@
+.quote-wrap {
+	width: 100%;
+	max-width: 80rem;
+
+	display: block;
+	margin: 0 auto;
+}
+
+
+.quote-elem {
+	max-height: 0;
+	color: #FFF;
+	margin: 0;
+	padding: 2rem 3rem;
+
+	font-family: 'Abhaya Libre', Times, serif;
+	font-size: 4rem;
+
+	-webkit-transition: max-height 0s 0.5s;
+	-ms-transition: max-height 0s 0.5s;
+	transition: max-height 0s 0.5s;
+
+	&.active {
+		max-height: 999999px;
+	}
+
+	span {
+		display: block;
+	}
+
+	cite {
+		display: inline-block;
+		color: rgba(0,0,0,0.5);
+		padding-top: 1rem;
+
+		font-family: 'Raleway', Helvetica, Arial, sans-serif;
+		font-size: 2rem;
+		font-style: normal;
+		letter-spacing: 0.5px;
+	}
+}
+
+
+.quote-elem__header,
+.quote-elem__body,
+.quote-elem__footer {
+	opacity: 0;
+	margin-top: 2rem;
+}
+
+
+.quote-elem__header {
+	padding-bottom: 3.5rem;
+	-webkit-transition: opacity 0.25s 0.2s, margin 0.25s 0.2s;
+	-ms-transition: opacity 0.25s 0.2s, margin 0.25s 0.2s;
+	transition: opacity 0.25s 0.2s, margin 0.25s 0.2s;
+}
+
+
+.quote-elem__body {
+	-webkit-transition: opacity 0.25s 0.1s, margin 0.25s 0.1s;
+	-ms-transition: opacity 0.25s 0.1s, margin 0.25s 0.1s;
+	transition: opacity 0.25s 0.1s, margin 0.25s 0.1s;
+}
+
+
+.quote-elem__footer {
+	width: 100%;
+	padding-top: 4rem;
+
+	text-align: center;
+
+	-webkit-transition: opacity 0.25s, margin 0.25s;
+	-ms-transition: opacity 0.25s, margin 0.25s;
+	transition: opacity 0.25s, margin 0.25s;
+}
+
+
+.active > .quote-elem__header,
+.active > .quote-elem__body,
+.active > .quote-elem__footer {
+	opacity: 1;
+	margin-top: 0;
+}
+
+
+.active > .quote-elem__header {
+	-webkit-transition: opacity 0.25s, margin 0.25s;
+	-ms-transition: opacity 0.25s, margin 0.25s;
+	transition: opacity 0.25s, margin 0.25s;
+}
+
+
+.active > .quote-elem__body {
+	-webkit-transition: opacity 0.25s 0.1s, margin 0.25s 0.1s;
+	-ms-transition: opacity 0.25s 0.1s, margin 0.25s 0.1s;
+	transition: opacity 0.25s 0.1s, margin 0.25s 0.1s;
+}
+
+
+.active > .quote-elem__footer {
+	-webkit-transition: opacity 0.25s 0.2s, margin 0.25s 0.2s;
+	-ms-transition: opacity 0.25s 0.2s, margin 0.25s 0.2s;
+	transition: opacity 0.25s 0.2s, margin 0.25s 0.2s;
+}
